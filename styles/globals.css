@@ -47,6 +47,7 @@ button:hover {
   padding: 16px 24px;
   background: #0052cc;
   color: white;
+  margin-bottom: 15px;
 }
 .topbar button {
   background: rgba(255, 255, 255, 0.2);
