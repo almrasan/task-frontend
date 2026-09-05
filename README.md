@@ -46,4 +46,12 @@ npm run dev
 Deployed on [Vercel — fill in]. Set `NEXT_PUBLIC_API_URL` in the Vercel project's environment variables to the deployed backend URL.
 
 ## Screenshots
-_Add screenshots of the login page, user dashboard, and admin dashboard here before submitting._
+
+### Login
+![Login page](screenshots/login.png)
+
+### User Dashboard
+![User dashboard](screenshots/dashboard.png)
+
+### Admin Dashboard
+![Admin dashboard](screenshots/admin.png)
