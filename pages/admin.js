@@ -52,61 +52,65 @@ export default function Admin() {
 
       <Board tasks={tasks} currentUser={user} onStatusChange={handleStatusChange} onAssignToSelf={() => {}} />
 
-      <h3 style={{ margin: '24px 24px 8px' }}>All tasks — reassign</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Creator</th>
-            <th>Assigned To</th>
-            <th>Reassign</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasks.map((t) => (
-            <tr key={t._id}>
-              <td>{t.title}</td>
-              <td>{t.status}</td>
-              <td>{t.creator?.name}</td>
-              <td>{t.assignedTo ? t.assignedTo.name : 'Unassigned'}</td>
-              <td>
-                <select
-                  value={t.assignedTo?._id || ''}
-                  onChange={(e) => handleReassign(t._id, e.target.value)}
-                >
-                  <option value="">Unassigned</option>
-                  {users.map((u) => (
-                    <option key={u._id} value={u._id}>
-                      {u.name}
-                    </option>
-                  ))}
-                </select>
-              </td>
+      <h3>All tasks — reassign</h3>
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Creator</th>
+              <th>Assigned To</th>
+              <th>Reassign</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {tasks.map((t) => (
+              <tr key={t._id}>
+                <td>{t.title}</td>
+                <td>{t.status}</td>
+                <td>{t.creator?.name}</td>
+                <td>{t.assignedTo ? t.assignedTo.name : 'Unassigned'}</td>
+                <td>
+                  <select
+                    value={t.assignedTo?._id || ''}
+                    onChange={(e) => handleReassign(t._id, e.target.value)}
+                  >
+                    <option value="">Unassigned</option>
+                    {users.map((u) => (
+                      <option key={u._id} value={u._id}>
+                        {u.name}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-      <h3 style={{ margin: '24px 24px 8px' }}>All users</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((u) => (
-            <tr key={u._id}>
-              <td>{u.name}</td>
-              <td>{u.email}</td>
-              <td>{u.role}</td>
+      <h3>All users</h3>
+      <div className="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((u) => (
+              <tr key={u._id}>
+                <td>{u.name}</td>
+                <td>{u.email}</td>
+                <td>{u.role}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
